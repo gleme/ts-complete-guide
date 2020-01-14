@@ -1,0 +1,8 @@
+# Dependencies
+/node_modules
+
+# Build Files
+/dist
+
+# Parcel cache files
+.cache
