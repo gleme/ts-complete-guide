@@ -10,6 +10,7 @@ export class Company implements Mappable {
     lng: number;
   };
 
+
   constructor() {
     this.name = faker.company.companyName();
     this.catchPhrase = faker.company.catchPhrase();
@@ -18,4 +19,12 @@ export class Company implements Mappable {
       lng: parseFloat(faker.address.longitude()),
     };
   }
+
+  markerContent(): string {
+    return `
+    <h1>${this.name}</h1>
+    <h3>${this.catchPhrase}</h3>
+    `;
+  }
+
 }

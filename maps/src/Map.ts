@@ -4,6 +4,7 @@ export interface Mappable {
     lat: number;
     lng: number;
   };
+  markerContent(): string;
 }
 
 export class Map {
@@ -24,13 +25,20 @@ export class Map {
     this.map.setZoom(zoom);
   }
 
-  addMarker(mappable: Mappable) {
-    return new google.maps.Marker({
+  addMarker(mappable: Mappable): void {
+    const marker = new google.maps.Marker({
       map: this.map,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng
       }
+    });
+
+    marker.addListener('click', () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: mappable.markerContent(),
+      });
+      infoWindow.open(this.map, marker);
     });
   }
 
