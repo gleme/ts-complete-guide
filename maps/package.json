@@ -16,6 +16,7 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
+    "@types/googlemaps": "^3.39.1",
     "faker": "^4.1.0"
   }
 }
