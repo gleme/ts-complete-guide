@@ -1,0 +1,26 @@
+{
+  "name": "ts-complete-guide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*",  
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gleme/ts-complete-guide.git"
+  },
+  "keywords": [],
+  "author": "Gustavo Leme <gleme@nevada.unr.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gleme/ts-complete-guide/issues"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2"
+  }
+}
