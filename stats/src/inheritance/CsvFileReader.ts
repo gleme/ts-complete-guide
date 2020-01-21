@@ -1,18 +1,20 @@
 import { readFileSync } from 'fs';
-import { DataReader } from './DataReader';
 
-export class CsvFileReader implements DataReader {
+export abstract class CsvFileReader<T> {
 
-  public data: string[][] = [];
+  public data: T[] = [];
 
   constructor(public filename: string) { }
+
+  abstract mapRow(row: string[]): T;
 
   read(): void {
     this.data = readFileSync(this.filename, {
       encoding: 'utf-8'
     })
       .split('\n')
-      .map((row: string): string[] => row.split(','));
+      .map((row: string): string[] => row.split(','))
+      .map(this.mapRow);
   }
   
 }
