@@ -6,10 +6,6 @@ type MatchData =  [Date, string, string, number, number, MatchResult, string];
 
 export abstract class MatchCsvFileReader extends CsvFileReader<MatchData> {
 
-  constructor(public filename: string) {
-    super(filename);
-  }
-
   mapRow(row: string[]): MatchData {
     return [
       dateStringToDate(row[0]),
