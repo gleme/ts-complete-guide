@@ -1,7 +1,7 @@
-import { CsvFileReader } from './CsvFileReader';
+import { MatchCsvFileReader } from './MatchCsvFileReader';
 import { MatchResult } from './MatchResult';
 
-const reader = new CsvFileReader('./football.csv');
+const reader = new MatchCsvFileReader('./football.csv');
 reader.read();
 
 const teamName = 'Man United';

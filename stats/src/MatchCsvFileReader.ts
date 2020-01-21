@@ -4,7 +4,7 @@ import { MatchResult } from './MatchResult';
 
 type MatchData =  [Date, string, string, number, number, MatchResult, string];
 
-export abstract class MatchCsvFileReader extends CsvFileReader<MatchData> {
+export class MatchCsvFileReader extends CsvFileReader<MatchData> {
 
   mapRow(row: string[]): MatchData {
     return [
