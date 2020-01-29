@@ -16,7 +16,7 @@ export abstract class ApiModel<T> {
     this.attributes = new Attributes<T>(attr);
   }
 
-  on(eventName: string, callback: Calllback): void {
-    this.events.on(eventName, callback);
+  get on() {
+    return this.events.on;
   }
 }
