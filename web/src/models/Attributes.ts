@@ -1,13 +1,19 @@
-export class Attributes<T> {
+import { ModelAttributes } from './Model';
 
-  constructor(private data: T) {}
+export class Attributes<T> implements ModelAttributes<T> {
 
-  get = <K extends keyof T>(key: string): T[K] => {
+  constructor(private data: T) { }
+
+  get = <K extends keyof T>(key: K): T[K] => {
     return this.data[key];
   }
 
   set = (update: T): void => {
     Object.assign(this.data, update);
+  }
+
+  getAll = (): T => {
+    return this.data;
   }
 
 }

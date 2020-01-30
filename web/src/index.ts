@@ -1,4 +1,10 @@
 import { User } from './models/User';
 
-const user = new User({ id: 1 });
-user.fetch();
+
+async function run() {
+  const user = User.buildUser()
+  await user.fetch();
+}
+
+
+run().then(() => console.log('finished'));

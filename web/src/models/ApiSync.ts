@@ -1,10 +1,7 @@
 import axios, { AxiosInstance, AxiosPromise } from 'axios';
+import { HasId } from './Model';
 
-export interface HasId {
-  id?: number;
-}
-
-export class Sync<T extends HasId> {
+export class ApiSync<T extends HasId> {
 
   private httpClient: AxiosInstance;
 
@@ -15,15 +12,15 @@ export class Sync<T extends HasId> {
   }
 
   fetch(id: number): AxiosPromise<T> {
-    return this.httpClient.get(`/users/${id}`);
+    return this.httpClient.get(`/${id}`);
   }
 
   save(data: T): AxiosPromise {
     const { id }  = data;
     if (id) {
-      return axios.put(`/users/${id}`, data);
+      return axios.put(`/${id}`, data);
     } else {
-      return axios.post('/users', data);
+      return axios.post('/', data);
     }
 
   }
