@@ -4,6 +4,10 @@
         "target": "es5",
         "noImplicitAny": false,
         "sourceMap": false,
-        "strict": true
+        "strict": true,
+        "lib": [
+            "es2017",
+            "dom"
+        ]
     }
 }

@@ -1,10 +1,7 @@
-import { User } from './models/User';
+import { UserForm } from './views/UserForm';
 
+const userForm = new UserForm(
+  document.getElementById('root')
+);
 
-async function run() {
-  const user = User.buildUser()
-  await user.fetch();
-}
-
-
-run().then(() => console.log('finished'));
+userForm.render();
