@@ -1,6 +1,5 @@
 import { Model } from "../models/Model";
 
-
 export abstract class View<T extends Model<K>, K> {
   
   constructor(
@@ -9,7 +8,11 @@ export abstract class View<T extends Model<K>, K> {
   ) {
     this.bindModel();
   }
-
+  abstract template(): string;
+  eventsMap(): { [key: string]: () => void } {
+    return {};
+  }
+  
   bindModel(): void {
     this.model.on('change', () => {
       this.render();
@@ -34,9 +37,5 @@ export abstract class View<T extends Model<K>, K> {
     this.bindEvents(templateElement.content);
     this.parent.append(templateElement.content);
   }
-
-  abstract template(): string;
-
-  abstract eventsMap(): { [key: string]: () => void };
 
 }

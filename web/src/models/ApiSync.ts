@@ -7,7 +7,7 @@ export class ApiSync<T extends HasId> {
 
   constructor(baseURL: string) {
     this.httpClient = axios.create({
-      baseURL: baseURL
+      baseURL
     });
   }
 
