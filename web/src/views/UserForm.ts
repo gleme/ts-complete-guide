@@ -36,7 +36,6 @@ export class UserForm extends View<User, UserProps> {
   }
 
   template(): string {
-    // <p>Age: ${this.model.get('age')}</p>
     return `
       <div>
         <input placeholder="${this.model.get('name')}"/>
