@@ -1,14 +1,15 @@
-import * as express from 'express';
+import express from 'express';
+import bodyParser from 'body-parser';
+import cookieSession from 'cookie-session';
+import { router as loginRouter } from './routes/login-route';
 
 const app = express();
 const port = 3000;
 
-app.get('/', (req: express.Request, res: express.Response) => {
-  res.send(`
-  <h1>Ola Mundo</h1>
-  `)  
-});
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieSession({ keys: ['adeadeadea']}));
+app.use(loginRouter);
 
 app.listen(port, () => {
-  console.log(`listening at port: ${port}`)
+  console.log(`listening at port: ${port}`);
 });
