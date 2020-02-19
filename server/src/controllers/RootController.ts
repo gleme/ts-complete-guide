@@ -3,7 +3,7 @@ import { controller, use, get } from "./decorators";
 import { requireAuth } from '../middlewares/auth';
 
 @controller('')
-export class RootController {
+class RootController {
   
   @get('/')
   getRoot(req: Request, res: Response): void {

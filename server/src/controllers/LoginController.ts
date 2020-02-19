@@ -2,7 +2,7 @@ import { controller, get, post, bodyValidator } from './decorators';
 import { Request, Response } from 'express';
 
 @controller('/auth')
-export class LoginController {
+class LoginController {
 
   @get('/login')
   getLogin(req: Request, res: Response): void {

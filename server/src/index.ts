@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import cookieSession from 'cookie-session';
 import { AppRouter } from './AppRouter';
